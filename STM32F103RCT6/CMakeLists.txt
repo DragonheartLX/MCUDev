@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 # Core project settings
-project("STM32F407VGT6-Code")
+project("STM32F103RCT6-Code")
 enable_language(C CXX ASM)
 message("Build type: " ${CMAKE_BUILD_TYPE})
 
@@ -21,13 +21,18 @@ set(cpu_PARAMS
 )
 
 # Sources
+file(GLOB_RECURSE PROJ_SRC LIST_DIRECTORIES true 
+    Application/*.c
+    Application/**/*.c)
+
 set(sources_SRCS
-	${CMAKE_CURRENT_SOURCE_DIR}/Application/main.c
+	${PROJ_SRC}
 )
 
 # Include directories for all compilers
 set(include_DIRS
 	${CMAKE_CURRENT_SOURCE_DIR}/Drivers
+	${CMAKE_CURRENT_SOURCE_DIR}/Application
 )
 
 # Include directories for each compiler

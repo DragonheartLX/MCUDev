@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug with OpenOCD",
+            "name": "STM32F407",
             "cwd": "${workspaceRoot}/build",
             "executable": "${command:cmake.launchTargetPath}",
             "request": "launch",
@@ -15,7 +15,24 @@
             "searchDir": [],
             "runToEntryPoint": "main",
             "showDevDebugOutput": "none"
-            // "svdFile": "${workspaceRoot}/scripts/STM32F103xx.svd"
+        },
+        {
+            "name": "STM32F103",
+            "cwd": "${workspaceRoot}/build",
+            "executable": "${command:cmake.launchTargetPath}",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "interface": "swd",
+            "configFiles": [
+                "${workspaceRoot}/scripts/interface/cmsis-dap.cfg",
+                "${workspaceRoot}/scripts/target/stm32f1x.cfg"
+            ],
+            "svdFile": "${workspaceRoot}/scripts/STM32F103.svd",
+            "searchDir": [],
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "none",
+            "openOCDLaunchCommands": ["init", "reset halt", "stm32f1x unlock 0", "reset halt"]
         }
     ]
 }

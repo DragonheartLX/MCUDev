@@ -12,11 +12,10 @@
             }
         },
         {
-            "name": "Debug",
+            "name": "Debug F407VGT6",
             "inherits": "default",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
-                "PROJECT_ORIGINAL_NAME": "STM32F407VGT6-Code",
                 "CMSIS_Dvendor": "STMicroelectronics:13",
                 "CMSIS_Dname": "STM32F407VGT6",
                 "CMSIS_Dcore": "Cortex-M4",
@@ -31,11 +30,10 @@
             }
         },
         {
-            "name": "Release",
+            "name": "Release F407VGT6",
             "inherits": "default",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
-                "PROJECT_ORIGINAL_NAME": "STM32F407VGT6-Code",
                 "CMSIS_Dvendor": "STMicroelectronics:13",
                 "CMSIS_Dname": "STM32F407VGT6",
                 "CMSIS_Dcore": "Cortex-M4",
@@ -44,6 +42,32 @@
                 "CMSIS_Ddsp": "DSP",
                 "CMSIS_Dmve": "NO_MVE",
                 "CMSIS_Dmpu": "MPU",
+                "CMSIS_Dendian": "Little-endian",
+                "CMSIS_Dsecure": "",
+                "CMSIS_Tcompiler": "GCC"
+            }
+        },
+        {
+            "name": "Debug F103RCT6",
+            "inherits": "default",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMSIS_Dvendor": "STMicroelectronics:13",
+                "CMSIS_Dname": "STM32F103RCT6",
+                "CMSIS_Dcore": "Cortex-M3",
+                "CMSIS_Dendian": "Little-endian",
+                "CMSIS_Dsecure": "",
+                "CMSIS_Tcompiler": "GCC"
+            }
+        },
+        {
+            "name": "Release F103RCT6",
+            "inherits": "default",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMSIS_Dvendor": "STMicroelectronics:13",
+                "CMSIS_Dname": "STM32F103RCT6",
+                "CMSIS_Dcore": "Cortex-M3",
                 "CMSIS_Dendian": "Little-endian",
                 "CMSIS_Dsecure": "",
                 "CMSIS_Tcompiler": "GCC"
@@ -57,12 +81,20 @@
             "configurePreset": "default"
         },
         {
-            "name": "Debug",
-            "configurePreset": "Debug"
+            "name": "Debug F407VGT6",
+            "configurePreset": "Debug F407VGT6"
         },
         {
-            "name": "Release",
-            "configurePreset": "Release"
+            "name": "Release F407VGT6",
+            "configurePreset": "Release F407VGT6"
+        },
+        {
+            "name": "Debug F103RCT6",
+            "configurePreset": "Debug F103RCT6"
+        },
+        {
+            "name": "Release F103RCT6",
+            "configurePreset": "Release F103RCT6"
         }
     ]
 }
