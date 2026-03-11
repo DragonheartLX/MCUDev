@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 3.20)
 # Core project settings
 project("STM32F103RCT6-Code")
 enable_language(C CXX ASM)
-message("Build type: " ${CMAKE_BUILD_TYPE})
 
 # Setup compiler settings
 set(CMAKE_C_STANDARD 11)
