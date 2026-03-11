@@ -23,16 +23,13 @@
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "openocd",
-            "interface": "swd",
             "configFiles": [
                 "${workspaceRoot}/scripts/interface/cmsis-dap.cfg",
                 "${workspaceRoot}/scripts/target/stm32f1x.cfg"
             ],
-            "svdFile": "${workspaceRoot}/scripts/STM32F103.svd",
             "searchDir": [],
             "runToEntryPoint": "main",
-            "showDevDebugOutput": "none",
-            "openOCDLaunchCommands": ["init", "reset halt", "stm32f1x unlock 0", "reset halt"]
+            "showDevDebugOutput": "none"
         }
     ]
 }
