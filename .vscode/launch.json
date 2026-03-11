@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug with OpenOCD",
+            "cwd": "${workspaceRoot}/build",
+            "executable": "${command:cmake.launchTargetPath}",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "${workspaceRoot}/scripts/interface/cmsis-dap.cfg",
+                "${workspaceRoot}/scripts/target/stm32f4x.cfg"
+            ],
+            "searchDir": [],
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "none"
+            // "svdFile": "${workspaceRoot}/scripts/STM32F103xx.svd"
+        }
+    ]
+}
