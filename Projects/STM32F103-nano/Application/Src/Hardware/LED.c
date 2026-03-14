@@ -7,7 +7,7 @@
 #include "stm32f1xx_hal_gpio.h"
 #include "stm32f1xx_hal_rcc.h"
 
-void LED_init(void)
+void LED_Init(void)
 {
     GPIO_InitTypeDef Init_Struct;
 

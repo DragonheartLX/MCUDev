@@ -2,43 +2,36 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "STM32F4 Debug",
-            "cwd": "${workspaceRoot}/build",
-            "executable": "${command:cmake.launchTargetPath}",
-            "request": "launch",
-            "type": "cortex-debug",
-            "servertype": "openocd",
-            "configFiles": [
-                "${workspaceRoot}/scripts/interface/cmsis-dap.cfg",
-                "${workspaceRoot}/scripts/target/stm32f4x.cfg"
-            ],
-            "searchDir": [],
-            "runToEntryPoint": "main",
-            "showDevDebugOutput": "none"
-        },
-        {
-            "name": "STM32F1 Debug",
-            "cwd": "${workspaceRoot}/build",
-            "executable": "${command:cmake.launchTargetPath}",
-            "request": "launch",
-            "type": "cortex-debug",
-            "servertype": "openocd",
-            "configFiles": [
-                "${workspaceRoot}/scripts/interface/cmsis-dap.cfg",
-                "${workspaceRoot}/scripts/target/stm32f1x.cfg"
-            ],
-            "searchDir": [],
-            "runToEntryPoint": "main",
-            "showDevDebugOutput": "none",
-            "serverArgs": [
-                "-c",
-                "transport select swd"
-            ]
-        },
-        {
+            "name": "STM32F407VG",
             "type": "probe-rs-debug",
             "request": "launch",
+            "cwd": "${workspaceRoot}/build",
+            "speed": 10000,
+            "runtimeExecutable": "probe-rs",
+            "runtimeArgs": [
+                "dap-server"
+            ],
+            "chip": "STM32F407VG",
+            "flashingConfig": {
+                "flashingEnabled": true,
+                "haltAfterReset": true,
+                "formatOptions": {
+                    "binaryFormat": "elf"
+                }
+            },
+            "coreConfigs": [
+                {
+                    "coreIndex": 0,
+                    "programBinary": "${command:cmake.launchTargetPath}"
+                }
+            ],
+            "wireProtocol": "Swd",
+            "consoleLogLevel": "Debug"
+        },
+        {
             "name": "STM32F103RC",
+            "type": "probe-rs-debug",
+            "request": "launch",
             "cwd": "${workspaceRoot}/build",
             "speed": 10000,
             "runtimeExecutable": "probe-rs",
@@ -48,19 +41,22 @@
             "chip": "STM32F103RC",
             "flashingConfig": {
                 "flashingEnabled": true,
-                "haltAfterReset": false,
+                "haltAfterReset": true,
+                "fullChipErase": true,
                 "formatOptions": {
-                    "binaryFormat": "hex"
+                    "binaryFormat": "elf"
                 }
             },
             "coreConfigs": [
                 {
                     "coreIndex": 0,
-                    "programBinary": "${command:cmake.launchTargetPath}",
+                    "programBinary": "${command:cmake.launchTargetPath}"
                 }
             ],
-            "env": {},
-            "consoleLogLevel": "Console"
+            "connectUnderReset": true,
+            "wireProtocol": "Swd",
+            "allowEraseAll": true,
+            "consoleLogLevel": "Debug"
         }
     ]
 }
