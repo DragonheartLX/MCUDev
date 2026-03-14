@@ -30,9 +30,13 @@ target_link_directories(${PROJECT_NAME} PRIVATE
     # Add user defined library search paths
 )
 
+file(GLOB_RECURSE PROJ_SRC LIST_DIRECTORIES false Application/Src/*.c)
+list(FILTER PROJ_SRC EXCLUDE REGEX "Application/Src/main.c")
+
 # Add sources to executable
 target_sources(${PROJECT_NAME} PRIVATE
     # Add user sources here
+    ${PROJ_SRC}
 )
 
 # Add include paths
