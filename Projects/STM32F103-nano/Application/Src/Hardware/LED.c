@@ -1,3 +1,7 @@
+// clang-format off
+#include "stm32f1xx_hal.h"
+// clang-format on
+
 #include "Hardware/LED.h"
 
 #include "stm32f1xx_hal_gpio.h"

@@ -29,7 +29,38 @@
             ],
             "searchDir": [],
             "runToEntryPoint": "main",
-            "showDevDebugOutput": "none"
+            "showDevDebugOutput": "none",
+            "serverArgs": [
+                "-c",
+                "transport select swd"
+            ]
+        },
+        {
+            "type": "probe-rs-debug",
+            "request": "launch",
+            "name": "STM32F103RC",
+            "cwd": "${workspaceRoot}/build",
+            "speed": 10000,
+            "runtimeExecutable": "probe-rs",
+            "runtimeArgs": [
+                "dap-server"
+            ],
+            "chip": "STM32F103RC",
+            "flashingConfig": {
+                "flashingEnabled": true,
+                "haltAfterReset": false,
+                "formatOptions": {
+                    "binaryFormat": "hex"
+                }
+            },
+            "coreConfigs": [
+                {
+                    "coreIndex": 0,
+                    "programBinary": "${command:cmake.launchTargetPath}",
+                }
+            ],
+            "env": {},
+            "consoleLogLevel": "Console"
         }
     ]
 }
