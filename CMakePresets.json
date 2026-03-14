@@ -2,75 +2,37 @@
     "version": 3,
     "configurePresets": [
         {
-            "name": "default",
+            "name": "base",
             "hidden": true,
             "generator": "Ninja",
             "binaryDir": "${sourceDir}/build",
-            "toolchainFile": "${sourceDir}/cmake/stm32-toolchain.cmake",
             "cacheVariables": {
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
             }
         },
         {
-            "name": "Debug F407VGT6",
-            "inherits": "default",
+            "name": "Debug",
+            "inherits": "base",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug",
-                "CMSIS_Dcore": "Cortex-M4",
-                "CMSIS_Dfpu": "SP_FPU",
-                "CMSIS_Dendian": "Little-endian"
+                "CMAKE_BUILD_TYPE": "Debug"
             }
         },
         {
-            "name": "Release F407VGT6",
-            "inherits": "default",
+            "name": "Release",
+            "inherits": "base",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release",
-                "CMSIS_Dcore": "Cortex-M4",
-                "CMSIS_Dfpu": "SP_FPU",
-                "CMSIS_Dendian": "Little-endian"
-            }
-        },
-        {
-            "name": "Debug F103RCT6",
-            "inherits": "default",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug",
-                "CMSIS_Dcore": "Cortex-M3",
-                "CMSIS_Dendian": "Little-endian"
-            }
-        },
-        {
-            "name": "Release F103RCT6",
-            "inherits": "default",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release",
-                "CMSIS_Dcore": "Cortex-M3",
-                "CMSIS_Dendian": "Little-endian"
+                "CMAKE_BUILD_TYPE": "Release"
             }
         }
     ],
     "buildPresets": [
         {
-            "name": "default",
-            "hidden": true,
-            "configurePreset": "default"
+            "name": "Debug",
+            "configurePreset": "Debug"
         },
         {
-            "name": "Debug F407VGT6",
-            "configurePreset": "Debug F407VGT6"
-        },
-        {
-            "name": "Release F407VGT6",
-            "configurePreset": "Release F407VGT6"
-        },
-        {
-            "name": "Debug F103RCT6",
-            "configurePreset": "Debug F103RCT6"
-        },
-        {
-            "name": "Release F103RCT6",
-            "configurePreset": "Release F103RCT6"
+            "name": "Release",
+            "configurePreset": "Release"
         }
     ]
 }

@@ -1,8 +1,9 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.22)
 
-project(MCUDev C CXX ASM)
-
-message(STATUS "Build type: " ${CMAKE_BUILD_TYPE})
+if(NOT TOOLCHAIN_FILE)
+    set(TOOLCHAIN_FILE "${CMAKE_CURRENT_SOURCE_DIR}/cmake/gcc-arm-none-eabi.cmake")
+endif()
+include(${TOOLCHAIN_FILE})
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
@@ -11,5 +12,15 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
 
-add_subdirectory(STM32F103RCT6)
-add_subdirectory(STM32F407VGT6)
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "Debug")
+endif()
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
+
+project(MCUDev C CXX ASM)
+message(STATUS "Build type: " ${CMAKE_BUILD_TYPE})
+
+set(MCUDEV_ROOT "${CMAKE_CURRENT_SOURCE_DIR}")
+
+add_subdirectory(Projects)

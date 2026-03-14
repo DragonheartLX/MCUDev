@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "STM32F407",
+            "name": "STM32F4 Debug",
             "cwd": "${workspaceRoot}/build",
             "executable": "${command:cmake.launchTargetPath}",
             "request": "launch",
@@ -17,7 +17,7 @@
             "showDevDebugOutput": "none"
         },
         {
-            "name": "STM32F103",
+            "name": "STM32F1 Debug",
             "cwd": "${workspaceRoot}/build",
             "executable": "${command:cmake.launchTargetPath}",
             "request": "launch",
